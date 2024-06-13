@@ -2,7 +2,6 @@ import 'dart:ui';
 
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:moments/business/nav/nav_page_controller.dart';
@@ -47,6 +46,7 @@ class NavPage extends GetView<NavPageController> {
 Widget _drawerWidget(BuildContext context, NavPageController controller) {
   return Drawer(
     backgroundColor: Colors.white,
+    shape: CustomDrawerShape(),
     child: Stack(
       children: [
         _userBg(context, controller),
@@ -146,7 +146,7 @@ Widget _topNavWidget(BuildContext context, NavPageController controller) {
                         padding: const EdgeInsets.only(top: 6, bottom: 6),
                         child: ClipOval(
                           child: ExtendedImage.network(
-                            "https://singlestep.cn/onestep/file/me.jpeg",
+                            "https://darrenyou.cn/onestep/file/me.jpeg",
                             width: 38,
                             height: 50,
                             fit: BoxFit.cover,
@@ -260,7 +260,7 @@ Widget _userBg(BuildContext context, NavPageController controller) {
                 height: 199,
                 width: context.width,
                 child: ExtendedImage.network(
-                  "https://singlestep.cn/onestep/file/me.jpeg",
+                  "https://darrenyou.cn/onestep/file/me.jpeg",
                   fit: BoxFit.cover,
                   cache: true,
                   //cancelToken: cancellationToken,
@@ -306,7 +306,7 @@ Widget _userLogined(BuildContext context, NavPageController controller) {
                 height: 60,
                 child: ClipOval(
                   child: ExtendedImage.network(
-                    "https://singlestep.cn/onestep/file/me.jpeg",
+                    "https://darrenyou.cn/onestep/file/me.jpeg",
                     fit: BoxFit.contain,
                     //mode: ExtendedImageMode.editor,
                   ),
@@ -386,4 +386,12 @@ Widget _userLogined(BuildContext context, NavPageController controller) {
       ],
     ),
   );
+}
+
+class CustomDrawerShape extends RoundedRectangleBorder {
+  CustomDrawerShape()
+      : super(
+          side: BorderSide.none, // 可以设置边框样式
+          borderRadius: BorderRadius.circular(0.0),
+        );
 }

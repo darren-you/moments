@@ -20,6 +20,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeData themeData = ThemeData(
+      primaryColor: Colors.white, // 设置主颜色
+      platform: TargetPlatform.iOS,
+    );
+
     return ScreenUtilInit(
       designSize: const Size(1920, 1080),
       minTextAdapt: true,
@@ -34,7 +39,7 @@ class MyApp extends StatelessWidget {
           getPages: AppPages.appRoutes,
           defaultTransition: Transition.native, // 页面跳转默认动画
           routingCallback: RoutingCallbackListener.routingListner,
-          theme: ThemeData(platform: TargetPlatform.iOS),
+          theme: themeData,
           debugShowCheckedModeBanner: false,
           scrollBehavior: MyBehavior(),
         );

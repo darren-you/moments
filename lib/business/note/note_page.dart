@@ -10,7 +10,7 @@ class NotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      //color: Colors.blue,
+      color: Colors.white,
       child: ListView(
         children: [
           const SizedBox(height: 50),
@@ -173,7 +173,7 @@ Widget _noteItemWidget(int month) {
                           width: 320,
                           color: Colors.blue,
                           child: ExtendedImage.network(
-                            "https://singlestep.cn/wejinda/res/img/swiper_${index + 1}.jpeg",
+                            "https://darrenyou.cn/wejinda/res/img/swiper_${index + 1}.jpeg",
                             fit: BoxFit.cover,
                           ),
                         ),

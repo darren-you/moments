@@ -30,7 +30,7 @@ Widget _bgWidget() {
         child: Container(
           padding: const EdgeInsets.only(top: 50, bottom: 50),
           child: ExtendedImage.network(
-            "https://singlestep.cn/onestep/file/me.jpeg",
+            "https://darrenyou.cn/onestep/file/me.jpeg",
             fit: BoxFit.cover,
           ),
         ),
@@ -73,7 +73,7 @@ Widget _contentWidget() {
             children: [
               ClipOval(
                 child: ExtendedImage.network(
-                  "https://singlestep.cn/onestep/file/me.jpeg",
+                  "https://darrenyou.cn/onestep/file/me.jpeg",
                   width: 160,
                   height: 160,
                   fit: BoxFit.cover,
