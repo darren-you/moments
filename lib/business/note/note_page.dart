@@ -10,7 +10,7 @@ class NotePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
+      //color: Colors.white,
       child: ListView(
         children: [
           const SizedBox(height: 50),
