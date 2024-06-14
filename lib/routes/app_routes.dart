@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:moments/business/nav/nav_page.dart';
+import 'package:moments/utils/browser_util.dart';
 
 import '../business/nav/nav_page_controller.dart';
 import '../utils/routes_util.dart';

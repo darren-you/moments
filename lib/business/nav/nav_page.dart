@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,6 +7,7 @@ import 'package:moments/business/note/note_page.dart';
 import 'package:moments/business/products/products_page.dart';
 import 'package:moments/components/keep_alive_wrapper.dart';
 import 'package:moments/enumm/color_enum.dart';
+import 'package:moments/utils/browser_util.dart';
 
 import '../../utils/assert_util.dart';
 
@@ -66,10 +65,13 @@ Widget _drawerWidget(BuildContext context, NavPageController controller) {
                 Container(
                   height: 80,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Colors.amber,
                     borderRadius: BorderRadius.circular(10),
                   ),
                 ),
+
+                // 浏览器信息
+                Text(BrowserUtil.getBrowserInfo().toString()),
                 const SizedBox(height: 20),
               ],
             ),
@@ -100,80 +102,55 @@ Widget _bgWidget(BuildContext context, NavPageController controller) {
 Widget _topNavWidget(BuildContext context, NavPageController controller) {
   return Align(
     alignment: Alignment.topCenter,
-    child: SizedBox(
+    child: Container(
+      color: BrowserUtil.browerTopNavColor(),
       width: context.width,
       height: 50,
-      child: Stack(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 3.0),
-              child: Opacity(
-                opacity: 0.5,
-                child: Container(
-                  width: context.width,
-                  height: 50,
-                  decoration: BoxDecoration(
-                      //color: Colors.grey,
-                      color: const Color(0xFFF3F3F6).withOpacity(0.5)),
-                ),
+          GestureDetector(
+            onTap: () {
+              scaffoldKey.currentState?.openDrawer();
+              //Scaffold.of(scaffoldKey.currentContext!).openDrawer();
+            },
+            child: Container(
+              color: Colors.transparent,
+              child: Row(
+                children: [
+                  Container(
+                    width: 38,
+                    height: 50,
+                    margin: const EdgeInsets.only(left: 16),
+                    padding: const EdgeInsets.only(top: 6, bottom: 6),
+                    child: ClipOval(
+                      child: ExtendedImage.network(
+                        "https://darrenyou.cn/onestep/file/me.jpeg",
+                        width: 38,
+                        height: 50,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 16),
+                  // Text(
+                  //   'DarrenYou',
+                  //   style: TextStyle(
+                  //     color: MyColors.textNavColor.color,
+                  //     fontSize: 16,
+                  //   ),
+                  // ),
+                  // const SizedBox(width: 16),
+                ],
               ),
             ),
           ),
-          // Container(
-          //   width: context.width,
-          //   height: 50,
-          //   decoration: const BoxDecoration(
-          //       //color: Colors.grey,
-          //       color: Color(0xFFFFFFFF)),
-          // ),
+          const SizedBox(width: 16),
+          const Expanded(child: SizedBox()),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              GestureDetector(
-                onTap: () {
-                  scaffoldKey.currentState?.openDrawer();
-                  //Scaffold.of(scaffoldKey.currentContext!).openDrawer();
-                },
-                child: Container(
-                  color: Colors.transparent,
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 38,
-                        height: 50,
-                        margin: const EdgeInsets.only(left: 16),
-                        padding: const EdgeInsets.only(top: 6, bottom: 6),
-                        child: ClipOval(
-                          child: ExtendedImage.network(
-                            "https://darrenyou.cn/onestep/file/me.jpeg",
-                            width: 38,
-                            height: 50,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                      Text(
-                        'DarrenYou',
-                        style: TextStyle(
-                          color: MyColors.textNavColor.color,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(width: 16),
-                    ],
-                  ),
-                ),
-              ),
-              const SizedBox(width: 16),
-              const Expanded(child: SizedBox()),
-              Row(
-                children: [
-                  _navMenuItem(0, controller),
-                  _navMenuItem(1, controller),
-                ],
-              ),
+              _navMenuItem(0, controller),
+              _navMenuItem(1, controller),
             ],
           ),
         ],

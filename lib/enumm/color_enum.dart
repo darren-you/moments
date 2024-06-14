@@ -33,11 +33,11 @@ enum MyColors {
   // Notifaction阴影
   notifationBackground(color: Colors.black12),
 
-  /// SDM
-  mainColor(color: Color(0xFFDD73EC)),
-  bgColor(color: Color(0xFFFFFFFF)),
-  myInfoTextColor(color: Color(0xFF121212)),
-  myInfoSecondTextColor(color: Color(0xFFA6AAAF)),
+  /// moments
+  macChromeiTopNavColor(color: Color(0xFFFFFFFF)),
+  macSafariTopNavColor(color: Color(0xFFF3F5F5)),
+  iphoneWeChatTopNavColor(color: Color(0xFFEDEDED)),
+  iphoneSafariTopNavColor(color: Color(0xFFFFFFFF)),
 
   endColor(color: Colors.amber);
 
